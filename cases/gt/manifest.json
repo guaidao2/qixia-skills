@@ -1,0 +1,22 @@
+{
+  "g1_pd_278.json": "pd",
+  "g1b_pd_single_room.json": "pd",
+  "g2_bayes_siqingshan.json": "bayes",
+  "g3_signaling_contract.json": "signaling",
+  "g3b_signaling_contract_fixed.json": "signaling",
+  "g4_mechanism_feisheng.json": "mechanism",
+  "g4b_mechanism_feisheng_fixed.json": "mechanism",
+  "g5_mixed_shuowangyue.json": "mixed",
+  "g6_tree_changjie.json": "backward",
+  "g6b_tree_selfexecute.json": "backward",
+  "g7_sunk_250.json": "sunk",
+  "g7b_sunk_opponent.json": "sunk",
+  "g8_bluff_jile.json": "bluff",
+  "g9_prob_baiheiqi.json": "prob",
+  "g10_common_liangjun.json": "common",
+  "g12_meta_dao.json": "meta",
+  "situation_jile_qianzhuang.json": "audit",
+  "situation_interview_room.json": "audit",
+  "gate_jile_blocked.json": "gate",
+  "gate_baiheiqi_pass.json": "gate"
+}

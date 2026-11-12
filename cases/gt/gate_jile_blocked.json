@@ -1,0 +1,12 @@
+{
+  "name": "极乐钱庄：下注闸门审计（真实结局：禁止下注）",
+  "answers": {
+    "rules_full_text": false,
+    "structure_confirmed": true,
+    "info_value_checked": false,
+    "threat_checked": true,
+    "ev_positive_after_fees": false,
+    "incentive_checked": false,
+    "settlement_audited": false
+  }
+}

@@ -1,0 +1,9 @@
+# 统一换行：仓库内一律 LF，避免 Windows 检出后被 CRLF 翻写，
+# 破坏 PACKAGE.json 的逐文件 sha256 与「重跑逐字节不变」断言。
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.gif binary
+*.zip binary
+*.gz binary

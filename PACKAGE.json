@@ -1,0 +1,851 @@
+{
+  "name": "qixia-skills",
+  "display_name": "齐夏 skills",
+  "version": "1.0.0",
+  "generated_by": "scripts/check_package.py --write-manifest",
+  "entrypoints": {
+    "readme": "README.md",
+    "skill": "SKILL.md",
+    "quickstart": "QUICKSTART.md",
+    "routing": "ROUTING.md",
+    "index": "INDEX.json",
+    "cli": "qixia.py",
+    "methodology": "methodology/README.md",
+    "patterns": "methodology/patterns.index.json",
+    "casebook": "methodology/casebook.yaml",
+    "gt_engine": "scripts/gt/qixia_gt.py",
+    "gt_skill": "skills/game-theory/SKILL.md",
+    "evidence": "knowledge/sources/shiri_baike.txt"
+  },
+  "capabilities": {
+    "methodology_patterns": [
+      "P1",
+      "P2",
+      "P3",
+      "P4",
+      "P5"
+    ],
+    "game_theory_models": [
+      "G1",
+      "G2",
+      "G3",
+      "G4",
+      "G5",
+      "G6",
+      "G7",
+      "G8",
+      "G9",
+      "G10",
+      "G11",
+      "G12"
+    ],
+    "counts": {
+      "patterns": 5,
+      "models": 12,
+      "deep": 23,
+      "chapters": 37,
+      "zodiac_yaml_records": 60,
+      "dedupe_entries": 64,
+      "gt_cases": 20,
+      "md_files": 62,
+      "dangling": 0,
+      "selftest": 39,
+      "reports": 20
+    }
+  },
+  "checks": {
+    "passed": 49,
+    "failed": 0,
+    "warned": 1,
+    "items": [
+      {
+        "check": "structure:required-files",
+        "status": "PASS",
+        "detail": "全部存在"
+      },
+      {
+        "check": "structure:models-G1..G12",
+        "status": "PASS",
+        "detail": "12 个模型文档齐备"
+      },
+      {
+        "check": "structure:no-empty-files",
+        "status": "PASS",
+        "detail": "无 0 字节文件"
+      },
+      {
+        "check": "patterns:parse",
+        "status": "PASS",
+        "detail": "5 个模式, version=1.0.0"
+      },
+      {
+        "check": "patterns:unique-ids",
+        "status": "PASS",
+        "detail": "ids=['P1', 'P2', 'P3', 'P4', 'P5']"
+      },
+      {
+        "check": "patterns:cross-links",
+        "status": "PASS",
+        "detail": "6 条模式间接口关系全部指向真实模式"
+      },
+      {
+        "check": "patterns:file-exists",
+        "status": "PASS",
+        "detail": "5 个模式文件与名称一一对应"
+      },
+      {
+        "check": "patterns:gt-refs-exist",
+        "status": "PASS",
+        "detail": "全部 gt_refs 命中 cases/gt/*.json"
+      },
+      {
+        "check": "patterns:gt-refs-reported",
+        "status": "PASS",
+        "detail": "全部 gt_refs 已有报告"
+      },
+      {
+        "check": "casebook:parse",
+        "status": "PASS",
+        "detail": "深度案例 23 条 / 章节级 37 条"
+      },
+      {
+        "check": "casebook:line-refs",
+        "status": "PASS",
+        "detail": "全部行号落在证据快照 1..3533 内"
+      },
+      {
+        "check": "casebook:pattern-refs",
+        "status": "PASS",
+        "detail": "全部案例→模式引用有效"
+      },
+      {
+        "check": "casebook:chapter-evidence",
+        "status": "PASS",
+        "detail": "37 条章节线索均标注 evidence"
+      },
+      {
+        "check": "cases-layer:zodiac-parse",
+        "status": "PASS",
+        "detail": "zodiac_mechanisms.yaml 解析出 60 条记录（共 1.0.0 版）"
+      },
+      {
+        "check": "cases-layer:zodiac-lines",
+        "status": "PASS",
+        "detail": "全部行号落在证据快照 1..3533 内"
+      },
+      {
+        "check": "cases-layer:zodiac-patterns",
+        "status": "PASS",
+        "detail": "全部 patterns 引用有效"
+      },
+      {
+        "check": "cases-layer:zodiac-evidence",
+        "status": "PASS",
+        "detail": "全部记录带 E1–E4 证据标签"
+      },
+      {
+        "check": "cases-layer:dedupe-relations",
+        "status": "PASS",
+        "detail": "22 条去重登记 relation 合法"
+      },
+      {
+        "check": "cases-layer:dedupe-targets",
+        "status": "PASS",
+        "detail": "去重目标均指向 casebook 的 C 系列"
+      },
+      {
+        "check": "cases-layer:dedupe-extends-has-delta",
+        "status": "PASS",
+        "detail": "extends/upgrades_clue 均写明增量 what_is_new"
+      },
+      {
+        "check": "cases-layer:chapter-clue-status",
+        "status": "PASS",
+        "detail": "37 条章节线索状态合法（clue_only / upgraded_to_fact）"
+      },
+      {
+        "check": "cases-layer:chapter-clue-upgrade-provenance",
+        "status": "PASS",
+        "detail": "升级为事实的线索都给出 upgraded_by 出处"
+      },
+      {
+        "check": "cases-layer:dedupe-stats",
+        "status": "PASS",
+        "detail": "去重统计与实际条目一致"
+      },
+      {
+        "check": "gt:manifest-cases-exist",
+        "status": "PASS",
+        "detail": "20 条映射全部命中"
+      },
+      {
+        "check": "gt:covers-all-cases",
+        "status": "PASS",
+        "detail": "无未登记案例"
+      },
+      {
+        "check": "gt:manifest-solvers",
+        "status": "PASS",
+        "detail": "solver 名均在引擎子命令内"
+      },
+      {
+        "check": "gt:report-per-case",
+        "status": "PASS",
+        "detail": "20 个案例均有报告"
+      },
+      {
+        "check": "gt:report-matches-case",
+        "status": "PASS",
+        "detail": "每份报告标题都与对应 case.name 一致"
+      },
+      {
+        "check": "gt:report-has-contract-fields",
+        "status": "PASS",
+        "detail": "每份报告都含 结论/数值/反制（单模型另含建议动作）"
+      },
+      {
+        "check": "index:declared-paths-exist",
+        "status": "PASS",
+        "detail": "38 条 L0 声明路径全部存在"
+      },
+      {
+        "check": "index:entrypoints-exist",
+        "status": "PASS",
+        "detail": "27 个入口均存在"
+      },
+      {
+        "check": "index:counts-match",
+        "status": "PASS",
+        "detail": "INDEX.json 的能力计数与产物一致"
+      },
+      {
+        "check": "cases-index:unique-uids",
+        "status": "PASS",
+        "detail": "69 条记录，uid 唯一"
+      },
+      {
+        "check": "cases-index:records-backed-by-yaml",
+        "status": "PASS",
+        "detail": "69 条记录均可在 YAML 源中找到"
+      },
+      {
+        "check": "cases-index:source-fingerprint",
+        "status": "PASS",
+        "detail": "source_fingerprint=30ef93abd42b50bb（实测 30ef93abd42b50bb）"
+      },
+      {
+        "check": "cases-index:baseline-lines",
+        "status": "PASS",
+        "detail": "baseline_lines=3533（实测 3533）"
+      },
+      {
+        "check": "cases-index:stats-match",
+        "status": "PASS",
+        "detail": "案例统计（总数/生肖局/特殊局/战例/家族）与记录一致"
+      },
+      {
+        "check": "cases-index:line-refs",
+        "status": "PASS",
+        "detail": "全部行号落在证据快照 1..3533 内"
+      },
+      {
+        "check": "links:no-dangling-references",
+        "status": "PASS",
+        "detail": "62 个 md 文件，引用全部可解析"
+      },
+      {
+        "check": "links:bare-names",
+        "status": "WARN",
+        "detail": "4 处裸文件名未落盘（可能是会话内产物）: CHANGELOG.md → `RELEASE-*.md`; README.md → `RELEASE-1.0.0.md`; ROUTING.md → `situation.json`; methodology\\01-rule-recon.md → `rules_raw.md`"
+      },
+      {
+        "check": "links:anchors-resolve",
+        "status": "PASS",
+        "detail": "锚点全部命中标题"
+      },
+      {
+        "check": "versions:consistent",
+        "status": "PASS",
+        "detail": "VERSION=1.0.0 / INDEX.json=1.0.0 / patterns.index.json=1.0.0 / PACKAGE.json=1.0.0"
+      },
+      {
+        "check": "selftest:gt-engine",
+        "status": "PASS",
+        "detail": "39 passed, 0 failed"
+      },
+      {
+        "check": "repro:pattern-validate",
+        "status": "PASS",
+        "detail": "校验通过 ✅"
+      },
+      {
+        "check": "repro:gt-run-cases-stable",
+        "status": "PASS",
+        "detail": "20 cases, 0 failed"
+      },
+      {
+        "check": "repro:models-docs-regenerable",
+        "status": "PASS",
+        "detail": "build_docs.py 重跑后 G1–G12 文档逐字节一致"
+      },
+      {
+        "check": "repro:cases-audit",
+        "status": "PASS",
+        "detail": "审计完成：记录 69（生肖局 37／战例 21／仅存名目 9）　家族 12/12　错误 0　警告 13　反幻觉阈值 0.5/0.30"
+      },
+      {
+        "check": "repro:cases-index-regenerable",
+        "status": "PASS",
+        "detail": "build_case_index.py 重跑后索引与覆盖矩阵逐字节一致"
+      },
+      {
+        "check": "repro:cli-smoke",
+        "status": "PASS",
+        "detail": "四个 CLI 入口全部可用"
+      },
+      {
+        "check": "counts:doc-claims-consistent",
+        "status": "PASS",
+        "detail": "文档中的计数与实际产物一致"
+      }
+    ]
+  },
+  "files": [
+    {
+      "path": ".gitattributes",
+      "bytes": 247,
+      "sha256": "b6264d84ab4e9cc4dc9a1bcdd87c0f18848397a0f40621879f9021bd190e39cb"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 156,
+      "sha256": "48cc1ae41f491d3664158729a2880dcdf93cb07c1298baa12a1123f10af452f5"
+    },
+    {
+      "path": "build_package.sh",
+      "bytes": 8474,
+      "sha256": "d624f79578225c262ff0412e86fd5e653aff347414279e2efbfc54fd2cd62120"
+    },
+    {
+      "path": "cases\\gt\\g10_common_liangjun.json",
+      "bytes": 469,
+      "sha256": "d36419c0bedbce7db8d4ae7085e3fb569fe49ab9c8944ad052d21faf9455bc69"
+    },
+    {
+      "path": "cases\\gt\\g12_meta_dao.json",
+      "bytes": 276,
+      "sha256": "a807ca61d24db403272123077aaf4512ce6c47700d089fb59c85fa7584dd0509"
+    },
+    {
+      "path": "cases\\gt\\g1_pd_278.json",
+      "bytes": 908,
+      "sha256": "38de8ae2f7716f154a6b9af4529905c035fa6ee2bf77744f8bfb288f28aa400f"
+    },
+    {
+      "path": "cases\\gt\\g1b_pd_single_room.json",
+      "bytes": 735,
+      "sha256": "0dc26d4f441f745f61e74ad9745d13a8d1bc89290972c3b2db018793bf5dc57b"
+    },
+    {
+      "path": "cases\\gt\\g2_bayes_siqingshan.json",
+      "bytes": 989,
+      "sha256": "566035bd8e8a76aa9ecd113410af2f2f20e8fd9ce2650380518298613189c331"
+    },
+    {
+      "path": "cases\\gt\\g3_signaling_contract.json",
+      "bytes": 1501,
+      "sha256": "e58dde27b8614cbbba8f676b465dd7401bdea39fdd635c04bb7fa7aab9c0dd11"
+    },
+    {
+      "path": "cases\\gt\\g3b_signaling_contract_fixed.json",
+      "bytes": 1463,
+      "sha256": "891fd82386d769a97936c42c6b9a4d0363bf1d5c6795035eaaf1e3d41751b072"
+    },
+    {
+      "path": "cases\\gt\\g4_mechanism_feisheng.json",
+      "bytes": 1249,
+      "sha256": "cd703325e8921b069708f1318315b59d4a5d0ab490fa22e4d7ca32ddfc8e8d2f"
+    },
+    {
+      "path": "cases\\gt\\g4b_mechanism_feisheng_fixed.json",
+      "bytes": 1194,
+      "sha256": "9209f5045e8e216b0dce1874edb4e5985a3f04e13c86c06f03d84547041e170f"
+    },
+    {
+      "path": "cases\\gt\\g5_mixed_shuowangyue.json",
+      "bytes": 762,
+      "sha256": "c04704112940a9e155af3cb68ad122b24fda38df2bb418924a8d6d121afa6720"
+    },
+    {
+      "path": "cases\\gt\\g6_tree_changjie.json",
+      "bytes": 985,
+      "sha256": "d3a411cd46d1f4a23d7fc16c8118e7bf24b046cdb7835f10bc3e5aa9b9bc07ba"
+    },
+    {
+      "path": "cases\\gt\\g6b_tree_selfexecute.json",
+      "bytes": 1224,
+      "sha256": "b7d71eeefb125ea5162ee59060c4d47d92b68a21a36682c9c085e8e45e83ad8d"
+    },
+    {
+      "path": "cases\\gt\\g7_sunk_250.json",
+      "bytes": 557,
+      "sha256": "ad9a0f2c3058689531bc136f14fcf7d6df3db15c68ef5ebe9f4bd71bcde419c3"
+    },
+    {
+      "path": "cases\\gt\\g7b_sunk_opponent.json",
+      "bytes": 426,
+      "sha256": "981ccb5f31d049e4a5708411a650bca2574ffc329f3174592757b31bab1932da"
+    },
+    {
+      "path": "cases\\gt\\g8_bluff_jile.json",
+      "bytes": 441,
+      "sha256": "2009315ac6a1164bb1b30aecf7a53b89d1e4ea47e3c78427bbcd5a99245aab94"
+    },
+    {
+      "path": "cases\\gt\\g9_prob_baiheiqi.json",
+      "bytes": 453,
+      "sha256": "4dd66b59d8515b31aadbcfb7dbe98cfbff6c4c45bcd1f86df683b0dd61766f45"
+    },
+    {
+      "path": "cases\\gt\\gate_baiheiqi_pass.json",
+      "bytes": 307,
+      "sha256": "73dd13751ebb3871b57f9ecb32adbeef1aba0234566db00dedf9a682c78355d0"
+    },
+    {
+      "path": "cases\\gt\\gate_jile_blocked.json",
+      "bytes": 327,
+      "sha256": "d5554ecde631aeebaade169c41043dc269638d14e5585de6e185eec0b36c1da6"
+    },
+    {
+      "path": "cases\\gt\\manifest.json",
+      "bytes": 785,
+      "sha256": "d58bdb799442a020c0e0d8d4ad731f55e816f8f69cebefeebb9eeee126f8d67c"
+    },
+    {
+      "path": "cases\\gt\\situation_interview_room.json",
+      "bytes": 3725,
+      "sha256": "cc9e39ac843a146fab025d8b58a4e91048c980193fa82f17feaf69d539b6eafa"
+    },
+    {
+      "path": "cases\\gt\\situation_jile_qianzhuang.json",
+      "bytes": 2034,
+      "sha256": "fc0be8b077d1a0717a2bec2ce1bca36c336045b2b8629e9278031db341655a10"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 7591,
+      "sha256": "4891e9e4c3e005cd9e11a9cd0aa1b8beb86b436dc896175118cb900e8d935f06"
+    },
+    {
+      "path": "INDEX.json",
+      "bytes": 21997,
+      "sha256": "5c89a1f0bfbac73ad1ea2ab478af597ea15f82f0be398d34e61f25cd1165bf82"
+    },
+    {
+      "path": "knowledge\\cases\\cases.index.json",
+      "bytes": 155335,
+      "sha256": "027123bb8f63566657f2338359d3a596a3d7bfb52c5e8a460d8fe40680a739b9"
+    },
+    {
+      "path": "knowledge\\cases\\coverage.md",
+      "bytes": 10131,
+      "sha256": "1c1a666141b23d89f635309569d918fe1d25ea16d3d18043903d5fe8df9b318a"
+    },
+    {
+      "path": "knowledge\\cases\\dedupe_map.yaml",
+      "bytes": 17980,
+      "sha256": "2a6b28c02b2a271f24b47272b940a5f22978ea79eefde0706aa0249cace964f3"
+    },
+    {
+      "path": "knowledge\\cases\\evidence_policy.md",
+      "bytes": 4022,
+      "sha256": "0a4e6c00360f1edea3462eef56c0f8ea0f44131825637a6f9788cabf5a7d543c"
+    },
+    {
+      "path": "knowledge\\cases\\qixia_battles.yaml",
+      "bytes": 45015,
+      "sha256": "f2e800ee7834d3d1569272f54fc40d7fd2b6e721051e3eb76d37610e1f1a1dd3"
+    },
+    {
+      "path": "knowledge\\cases\\README.md",
+      "bytes": 6212,
+      "sha256": "b35ae0cf7d75bb1093a14d7b47e4dc3eae5e490dcdd8a22ace9c570d675ebb31"
+    },
+    {
+      "path": "knowledge\\cases\\zodiac_mechanisms.yaml",
+      "bytes": 86329,
+      "sha256": "9b1118b40ead2060deb9d5aaccb4eacebed62785714a87aaecdb227396ba6233"
+    },
+    {
+      "path": "knowledge\\sources\\shiri_baike.txt",
+      "bytes": 178586,
+      "sha256": "52ade96860140ae45f49b33b490fd9dda83fa4de66f7318d4e6542f7c0c7bf7a"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1065,
+      "sha256": "4037344584cf3758aea064b134390b5898952b26f7f5d53e055bf55d22837bab"
+    },
+    {
+      "path": "methodology\\00-methodology-overview.md",
+      "bytes": 8057,
+      "sha256": "65f643b37a808f4515f1c6092b6e5bf113f96d1ae12dd0c0b5b5c6cb114645ec"
+    },
+    {
+      "path": "methodology\\01-rule-recon.md",
+      "bytes": 15829,
+      "sha256": "c3ab40dd602f761cc878ddcab37c2e9c571ee70ffd62ba704074bbfddc4236e4"
+    },
+    {
+      "path": "methodology\\02-rule-deception.md",
+      "bytes": 17882,
+      "sha256": "5e9212d6605b0a12dc803e07d680859e68d704ca99d2704ad5dd79242a8f5b17"
+    },
+    {
+      "path": "methodology\\03-nested-plans.md",
+      "bytes": 12037,
+      "sha256": "fc79844a088ab8bd86c8c4ec58d08ed61e99320200642818205d2ae133aefc3e"
+    },
+    {
+      "path": "methodology\\04-bets-commitment.md",
+      "bytes": 16511,
+      "sha256": "ce5c0fa100eb35e6b30307cdd4d2fd3b7823173f220a9fe1638797cd36a66feb"
+    },
+    {
+      "path": "methodology\\05-psych-warfare.md",
+      "bytes": 15036,
+      "sha256": "9f9d1cc760b6a7e62a97f6e829798809190b5ad3bcc27ecae79c22819afa9ec9"
+    },
+    {
+      "path": "methodology\\casebook.yaml",
+      "bytes": 30101,
+      "sha256": "eca3aa607fd568860182d1140501064e011d88fcf9de0da13d517ecef86184a2"
+    },
+    {
+      "path": "methodology\\examples\\ex01-jile-qianzhuang-walkthrough.md",
+      "bytes": 7455,
+      "sha256": "3290b0cc0dd820471a5d3f90f3af93594fb52f88c81cb2fd4edd72e376088da5"
+    },
+    {
+      "path": "methodology\\INTEGRATION.md",
+      "bytes": 5064,
+      "sha256": "5a453c1a03b689d34e6e9803b272108dc5bc385886e6b3258f55b397e349fe2e"
+    },
+    {
+      "path": "methodology\\patterns.index.json",
+      "bytes": 53818,
+      "sha256": "8a6f7c1dbeb9e2566f3a11c3064ea8f3bb26052bd5910ec0c77fb392abd781df"
+    },
+    {
+      "path": "methodology\\README.md",
+      "bytes": 4604,
+      "sha256": "3db11cd883d8ba7d470cbbafd5ab9f3a9d35d64e19462ebf0e989c942cc205d0"
+    },
+    {
+      "path": "methodology\\scripts\\pattern_cli.py",
+      "bytes": 8640,
+      "sha256": "ecd060180ed0726f5919bdacfcee4a3a741a2b0ac999e11229b5485b1fb68908"
+    },
+    {
+      "path": "methodology\\scripts\\validate.py",
+      "bytes": 7726,
+      "sha256": "c292643f0ede1a1dddc5cfc2cd20a535f3d6e06837a1dbc9eaf6fdb85302aef3"
+    },
+    {
+      "path": "prompts\\00-system-agent.md",
+      "bytes": 2716,
+      "sha256": "674b7713fc2c7d6b5a95d2179ea5b9f2706c68de4be8d53fd1bb31a6507d109e"
+    },
+    {
+      "path": "prompts\\01-rule-audit.md",
+      "bytes": 2281,
+      "sha256": "f4ea1b26ee0bda88b62245cffb3ff0042dd6250edf1eac0b049d4fa0376735ee"
+    },
+    {
+      "path": "prompts\\02-full-audit.md",
+      "bytes": 2338,
+      "sha256": "fe727a1b4093b6f6c103b7d8b454e0faf1e1eb5269936cccd6d190c3153ee354"
+    },
+    {
+      "path": "prompts\\03-nested-plan.md",
+      "bytes": 2829,
+      "sha256": "c692a088661692215182a3a420686d1e253a98b5414008ae09fafc555ebebbfe"
+    },
+    {
+      "path": "prompts\\04-negotiation-bet.md",
+      "bytes": 2627,
+      "sha256": "6584a71c5ad16cd5234d774a127d2185ece82d45d61e5032e078f1a842ba7400"
+    },
+    {
+      "path": "prompts\\05-debrief.md",
+      "bytes": 1978,
+      "sha256": "3475e097c3c5a307a352e60c2702e93e5b65d24dc844eed9beebd0c15fd84841"
+    },
+    {
+      "path": "prompts\\06-quick-oneshot.md",
+      "bytes": 1179,
+      "sha256": "829139fa4e0a6a70f92e82e4ee703a8a595c877065eaf871cc500a457bf55e2e"
+    },
+    {
+      "path": "prompts\\README.md",
+      "bytes": 2657,
+      "sha256": "9b0bcd9bdfa1d9c2861f2988626b914a7da72181c40c92d448570a5a5484b36f"
+    },
+    {
+      "path": "qixia.py",
+      "bytes": 20375,
+      "sha256": "ff5869b58119bacb62d9d7a670903e149a4fa02dc5762dc0371a42d5782b731a"
+    },
+    {
+      "path": "QUICKSTART.md",
+      "bytes": 8975,
+      "sha256": "45b29f0b3795022bd387a15b57ff0ce1c9481142a4f3da41da98267cb860bd35"
+    },
+    {
+      "path": "README.md",
+      "bytes": 11236,
+      "sha256": "cd5519b5972f7d9f1b762a06645e7a41da3756b63f2ad9454357a3b78d2ab8da"
+    },
+    {
+      "path": "reports\\gt\\g10_common_liangjun.md",
+      "bytes": 1409,
+      "sha256": "357db3e0ef52db28ef656ad3d9ea2c167ed14eb920e749b52281f15e2dc9daff"
+    },
+    {
+      "path": "reports\\gt\\g12_meta_dao.md",
+      "bytes": 1124,
+      "sha256": "5cea872c342a210b14e0eeeef77fb2a9206d0cae73fdca492d93372af0285087"
+    },
+    {
+      "path": "reports\\gt\\g1_pd_278.md",
+      "bytes": 1643,
+      "sha256": "77bfd77bc96f94253dd4723f4809b47310befdc9d476264a994a963e3cdee88e"
+    },
+    {
+      "path": "reports\\gt\\g1b_pd_single_room.md",
+      "bytes": 1305,
+      "sha256": "1e247939ddf295516bbc01f60fbe5858a6f07189bacb77c9d377cced56c5f7cb"
+    },
+    {
+      "path": "reports\\gt\\g2_bayes_siqingshan.md",
+      "bytes": 2598,
+      "sha256": "f200636401cb9bbca06cedbdbbc172041b11fa826a0558b319091fc72a7d12ce"
+    },
+    {
+      "path": "reports\\gt\\g3_signaling_contract.md",
+      "bytes": 3446,
+      "sha256": "5db7d94401e83fee4389c318b305812cea6461eae8c968821b744ca3c2488b8c"
+    },
+    {
+      "path": "reports\\gt\\g3b_signaling_contract_fixed.md",
+      "bytes": 2614,
+      "sha256": "21b7eb979b56f1dd4a13adc75e293aac8f1e0ffbaf1d921a98812732f1ff448d"
+    },
+    {
+      "path": "reports\\gt\\g4_mechanism_feisheng.md",
+      "bytes": 1279,
+      "sha256": "c043cecaec9c0c48d6f8944234f2ff8bb7728d9bb7849c0c0fb98301ec1df136"
+    },
+    {
+      "path": "reports\\gt\\g4b_mechanism_feisheng_fixed.md",
+      "bytes": 1053,
+      "sha256": "f8e08b37c8d95bf5f9d75f83e8bb8dfbde95cac550ee2ed1ee1348e66c44a7b4"
+    },
+    {
+      "path": "reports\\gt\\g5_mixed_shuowangyue.md",
+      "bytes": 1502,
+      "sha256": "5f7fcaa262807a11daac66cc7ace7942b1a21883ebb650424e169a8820deb2f3"
+    },
+    {
+      "path": "reports\\gt\\g6_tree_changjie.md",
+      "bytes": 1705,
+      "sha256": "b3886f5d2de50e28018d7d546659cd7f0c3f2652663906b2aed92c0e3f334a45"
+    },
+    {
+      "path": "reports\\gt\\g6b_tree_selfexecute.md",
+      "bytes": 1773,
+      "sha256": "a9ea7c85343a79a4f1f409a3d0456833aa836c5517c0b268f689be57c1ddece8"
+    },
+    {
+      "path": "reports\\gt\\g7_sunk_250.md",
+      "bytes": 1364,
+      "sha256": "6a814dfedb56e4f7c638c3885daa81c8299caffb06f62b376a9da307db1837c2"
+    },
+    {
+      "path": "reports\\gt\\g7b_sunk_opponent.md",
+      "bytes": 1055,
+      "sha256": "85bd820e5abcef21d8ec05d80c4ad9adfa72403432dda980ac0badaf67a0ce98"
+    },
+    {
+      "path": "reports\\gt\\g8_bluff_jile.md",
+      "bytes": 1775,
+      "sha256": "66e8dc97ab2ea089a59b9d7ced0513577f0280c3e6d3fa684876020c9b1195ec"
+    },
+    {
+      "path": "reports\\gt\\g9_prob_baiheiqi.md",
+      "bytes": 1399,
+      "sha256": "0032f4e02f4365ffe2b752f5a0176bc6e3916396d2eb3b2d9f6af7946e1c20f2"
+    },
+    {
+      "path": "reports\\gt\\gate_baiheiqi_pass.md",
+      "bytes": 1268,
+      "sha256": "8a7141d432e2ecb0309f37b9fa3f54c2aed2cc2ca2677f1900621c1d30769a7c"
+    },
+    {
+      "path": "reports\\gt\\gate_jile_blocked.md",
+      "bytes": 2343,
+      "sha256": "ea83e05b6551bd7be0e5b8bcea323c8938e0a83d97cb1d5ce10f9ba456556fd0"
+    },
+    {
+      "path": "reports\\gt\\situation_interview_room.md",
+      "bytes": 8860,
+      "sha256": "0ce568caaae7f8d26711c4cc0b5db6711e65467a9481911f6c0c87eb8a6416a6"
+    },
+    {
+      "path": "reports\\gt\\situation_jile_qianzhuang.md",
+      "bytes": 6828,
+      "sha256": "8d863585d2c39ea08a636776ffa617df487a00ece835a0661afc5ab9224f2e75"
+    },
+    {
+      "path": "ROUTING.md",
+      "bytes": 15829,
+      "sha256": "abeaf1f0729f2b88e8b4bd192bd6fbf693983ee263dffaac5688e8f3dd2fed28"
+    },
+    {
+      "path": "scripts\\cases\\audit_cases.py",
+      "bytes": 9794,
+      "sha256": "e4a9f1429e1c71d702b1c3940dd89f50b6c23626755a9b27b82d5ba1f53f0df5"
+    },
+    {
+      "path": "scripts\\cases\\build_case_index.py",
+      "bytes": 23494,
+      "sha256": "6cc5f73bbde0d3b53083c073e82d9a2a694b63ed6a8a6c6408084b7e67409f25"
+    },
+    {
+      "path": "scripts\\cases\\case_cli.py",
+      "bytes": 14498,
+      "sha256": "f1043c3cae9b7189092bc7f1211d5f6c62d879b64af7f0de804009cd50e44acc"
+    },
+    {
+      "path": "scripts\\check_package.py",
+      "bytes": 40635,
+      "sha256": "fdf88f945d5fe6a24afcb6aa0b4bf388abbd256daf0198c9a082d3a9fbc1863c"
+    },
+    {
+      "path": "scripts\\gt\\_html2text.py",
+      "bytes": 535,
+      "sha256": "464f9d7b550bb6c2e9da5f48995964475ae9d2d7d3a29ba9eda92d82db4a8779"
+    },
+    {
+      "path": "scripts\\gt\\build_docs.py",
+      "bytes": 31738,
+      "sha256": "011a86efa3d8944c41a3bf68cbe9bab4231df1ed5d8aca70f9c27125b2b0cb88"
+    },
+    {
+      "path": "scripts\\gt\\qixia_gt.py",
+      "bytes": 123788,
+      "sha256": "013e263ce8d5913df1969442b39c14d4e404e40fd89a3ff242caeefb52ae03a2"
+    },
+    {
+      "path": "scripts\\gt\\run_cases.sh",
+      "bytes": 2202,
+      "sha256": "119588c9c257b4c9b09cb8d513f5aac95ec2cc53caa9dae46e2f38b02f00b905"
+    },
+    {
+      "path": "SKILL.md",
+      "bytes": 15585,
+      "sha256": "8db2c7f53c4ecf82ae10804a24d4792ee408e4be58b6d661760f2701a93907df"
+    },
+    {
+      "path": "skills\\game-theory\\AGENT_PLAYBOOK.md",
+      "bytes": 8311,
+      "sha256": "b3bd6668806e0533c9964b7a6b41751539524d84c7f61345b47af7fe44ab0097"
+    },
+    {
+      "path": "skills\\game-theory\\CASES.md",
+      "bytes": 6321,
+      "sha256": "897081ab5ba00c4941a09f673b67dec46688950a14fd79bf0093c1dd1dff310e"
+    },
+    {
+      "path": "skills\\game-theory\\checklists.md",
+      "bytes": 25927,
+      "sha256": "b12157eacc4fffa17161f3f0323cf2b39d6526b4a8f0a11b83b2a076165dfb95"
+    },
+    {
+      "path": "skills\\game-theory\\models\\G1.md",
+      "bytes": 5179,
+      "sha256": "3285f1efb0bddd98b3b7f888a497e2031d40070a55ecc64b81d059863c9eda1d"
+    },
+    {
+      "path": "skills\\game-theory\\models\\G10.md",
+      "bytes": 4270,
+      "sha256": "1931381077918525e676278c228ab79443eb6a475b924c78cb6093b7caf9c938"
+    },
+    {
+      "path": "skills\\game-theory\\models\\G11.md",
+      "bytes": 4593,
+      "sha256": "5a95f11cf3f18ac3f1077d871131948009804cec390c4565c7cbb52e5ba66295"
+    },
+    {
+      "path": "skills\\game-theory\\models\\G12.md",
+      "bytes": 4126,
+      "sha256": "a828bf83cf06f9157e8ccb158bb1426bb558aad72f9db92e71c329e39f8869da"
+    },
+    {
+      "path": "skills\\game-theory\\models\\G2.md",
+      "bytes": 4352,
+      "sha256": "ad143f5cae43ab917a04bac9be265da0bcfaa4a52be6c39bb7187d9318913033"
+    },
+    {
+      "path": "skills\\game-theory\\models\\G3.md",
+      "bytes": 5279,
+      "sha256": "dd2e4af3252e977f216b829c634e453e865ff9dd28c80607da1110ad18e974c5"
+    },
+    {
+      "path": "skills\\game-theory\\models\\G4.md",
+      "bytes": 5589,
+      "sha256": "c3e73bde09fd25fb6b36c918b8e0eceb4dc36ed1af14d74979deba8e53ffe65d"
+    },
+    {
+      "path": "skills\\game-theory\\models\\G5.md",
+      "bytes": 4539,
+      "sha256": "b3dd8b4cee428db61541dc45432f802add2b80a8a67896f2a05aee25d6507c38"
+    },
+    {
+      "path": "skills\\game-theory\\models\\G6.md",
+      "bytes": 5054,
+      "sha256": "8d2a53c48132b8aa3f9184c6d0e25e06fdfcace7b6eba70e873e1e4d1913e065"
+    },
+    {
+      "path": "skills\\game-theory\\models\\G7.md",
+      "bytes": 4681,
+      "sha256": "c1f6e8ad4bad787976c7d8c1ca67baff11dd76b6303e9483b524cbfed1d70d74"
+    },
+    {
+      "path": "skills\\game-theory\\models\\G8.md",
+      "bytes": 4233,
+      "sha256": "d7669faa8d88710a6ea25270836bb6fa74c965d043acff3c2bbbbdd492916584"
+    },
+    {
+      "path": "skills\\game-theory\\models\\G9.md",
+      "bytes": 4520,
+      "sha256": "c3aeba10d8b39e1b6203ef054d16b0f9a37948f3b4ed8376c4a1c0da503c8282"
+    },
+    {
+      "path": "skills\\game-theory\\SCHEMAS.md",
+      "bytes": 8822,
+      "sha256": "36b2d29791db4523bdf10a978f7824f90691d9d31022ed0c23b8f152e744a8e3"
+    },
+    {
+      "path": "skills\\game-theory\\SKILL.md",
+      "bytes": 10511,
+      "sha256": "0e5c60bfabbb112324539f6cb8a034ccfb7c46d32d6b67ccbeb47247d8d8f12d"
+    },
+    {
+      "path": "VERSION",
+      "bytes": 6,
+      "sha256": "59854984853104df5c353e2f681a15fc7924742f9a2e468c29af248dce45ce03"
+    }
+  ],
+  "file_count": 107
+}

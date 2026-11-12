@@ -1,0 +1,15 @@
+# 字节码 / 缓存
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# 打包与临时产物
+dist/
+.tmp/
+*.err
+
+# 编辑器 / 系统
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

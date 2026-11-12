@@ -1,0 +1,12 @@
+{
+  "name": "黑白棋：下注闸门审计（全通过示例）",
+  "answers": {
+    "rules_full_text": true,
+    "structure_confirmed": true,
+    "info_value_checked": true,
+    "threat_checked": true,
+    "ev_positive_after_fees": true,
+    "incentive_checked": true,
+    "settlement_audited": true
+  }
+}

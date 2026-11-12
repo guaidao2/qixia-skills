@@ -1,0 +1,382 @@
+# 去重台账（dedupe_map）— 自动生成，勿手改
+# 生成器：scripts/cases/build_case_index.py
+# 作用：说明本案例库与 methodology/casebook.yaml（C01–C23 深度案例、X 系列章节线索）的边界，
+#       并逐条登记「新增了什么」，同时把章节标题线索与剧情事实分开。
+version: 1.0.0
+generated_by: scripts/cases/build_case_index.py
+note: 本文件由案例文件的 dedupe 字段机械汇总生成，勿手改；改来源文件后重跑生成脚本。
+relations:
+  distinct: 与既有案例无重叠（不登记）
+  extends: 主题相同，本条只记录增量（what_is_new 必填）
+  duplicate_of: 内容已被既有案例完全覆盖（无增量）
+  upgrades_clue: 把既有「章节标题线索」升级为 E1/E2 事实（what_is_new 必填）
+map:
+- new_id: ZG-01
+  new_name: 猫鼠游戏
+  existing: C10
+  relation: extends
+  what_is_new: C10 已收录隐藏规则；本条新增「猫的资源上限=可攻击目标」的定量视角、相克表缺失这一可探针化缺口，以及三处 E3 未定义点。
+- new_id: ZG-10
+  new_name: 青龙游戏（齐夏专属）
+  existing: C18
+  relation: extends
+  what_is_new: C18 已收录规则与连坐机理；本条新增「放过」的三处未定义（尤其在第三方代杀与未到达情形下的判定）与「顺序判定可被外部行为改写」这一攻击面。
+- new_id: ZG-15
+  new_name: 仓颉棋
+  existing: C05
+  relation: extends
+  what_is_new: C05 已收录主规则；本条新增(E1)主帅点将只能选「参与者」这一限制及其反用、同音字发音标准这一未定义解释权、剔除字规则冲突场景，以及赌命后三轮「每轮单独决胜负」的计分结构。
+- new_id: ZG-17
+  new_name: 天蛇时刻
+  existing: C15
+  relation: extends
+  what_is_new: C15 已收录规则与先手逻辑；本条新增「相遇」判定与珠子消耗时机两处未定义点，并给出被问方的反制（元问题/自指问题）。
+- new_id: ZG-18
+  new_name: 朗读者
+  existing: C16
+  relation: extends
+  what_is_new: C16 已收录「真正判定条件不是答对而是不露表情」；本条新增「表情判定主体未定义=判定权即生死权」与蛇族「徇私」权限的联动。
+- new_id: ZG-19
+  new_name: 少数与多数
+  existing: C17
+  relation: extends
+  what_is_new: C17 已收录单向链与 48 轮；本条新增 6:6 平局未定义这一结构性缺口、隐蔽信道（语气/停顿/编码）这一未定义通道，以及蛇族「徇私」对多数决的稀释作用。
+- new_id: ZG-20
+  new_name: 狡诈之蛇（六题合集）
+  existing: C08
+  relation: extends
+  what_is_new: C08 已收录六题及解法；本条新增「有趣=无客观判据=判定权即徇私权」的制度化读法，以及三题之外的第六题（无限猴子）的两条解法归类。
+- new_id: ZG-22
+  new_name: 木牛流马
+  existing: C13
+  relation: extends
+  what_is_new: C13 已收录角色豁免与接球换奖励；本条新增「球速固定=威胁可计算」「接球-装备-降风险」闭环套利，以及原文对「推车人不受影响」的直接点名与其被改写风险。
+- new_id: ZG-23
+  new_name: 极乐钱庄（白羊-齐夏设计）
+  existing: C02
+  relation: extends
+  what_is_new: C02 已收录三层结构与套利关系；本条新增三处关键未定义（彩券「重合」口径、多张彩券/合买、存款多账户叠加）与「按日累计可堵拆单」的具体庄家反制。
+- new_id: ZG-24
+  new_name: 四情扇（原定「八卦扇」）
+  existing: C03
+  relation: extends
+  what_is_new: C03 已收录三条隐藏规则与补货/回收套利；本条新增「配对条件未定义」这一核心空缺、脱逃者转移扇子的未定义通道，以及补扇时间表（每半小时一次共三次）这一抢购节奏。
+- new_id: ZG-29
+  new_name: 朔望月（猴族终极局·比点数）
+  existing: C04
+  relation: extends
+  what_is_new: C04 已收录三条隐藏规则与前注/加注结构；本条新增「加注后重启三项选择的循环=无限加注战」「非常规筹码可作为无效豪赌来试探库存」两条可执行打法，以及「三张牌合成一个点数」这一未定义的核心缺口。
+- new_id: ZG-31
+  new_name: 不插队
+  existing: C14
+  relation: extends
+  what_is_new: C14 已收录规则与「协议优先」结论；本条新增两处未定义（二十秒是否含上楼、次序可否自定）与「把队形当信号」的具体协议构造。
+- new_id: ZG-34
+  new_name: 送信人
+  existing: C11
+  relation: extends
+  what_is_new: C11 已收录身份、三分钟、粉碎机与铁盒；本条新增「身份可互相查看与交换」这一前置环节、叛变的对称代价（须抛弃己方奸细）可被定价、以及两条平行走廊的镜像结构。
+- new_id: ZG-35
+  new_name: 灾厄年
+  existing: C12
+  relation: extends
+  what_is_new: C12 已收录八签八回合与「鞭炮辞旧岁」隐藏规则；本条新增签与灾厄的完整名单（E1）、年兽每回合也可出一签、八回合共 32 次出签的冗余结构，以及「馈赠链」这一未定义通道。
+- new_id: ZG-37
+  new_name: 黑白棋
+  existing: C09
+  relation: extends
+  what_is_new: C09 已收录常规版 3/4 解法与赌命版结构；本条新增「分配权移交生肖」这一权属转移的制度含义，以及「一次询问是否含'只能问一人'」这一未定义缺口。
+- new_id: Q05
+  new_name: 面试房间·生肖飞升对赌合同（自动执行的合同）
+  existing: C01
+  relation: extends
+  what_is_new: C01 已逐条收录 2.1/2.4/3.1-3.7/4-10 与「甲方最终解释权」；本条新增三点。(1) 乙方身份确认——人羊张强，合同因此可被追溯到具体执行者；(2) 3.6「参与者须≤9 人，多于九人须杀多余者并于游戏结束后自杀」与第四轮回「生生不息造出第十人→张强自杀」构成一条此前未登记的因果链（E3 推断，两端均有原文支撑）；(3) 1.1 的「须确认已无剩余『道』」是乙方被剥夺资源后才签下合同的前置条件。
+- new_id: Q08
+  new_name: 仓颉棋·黑门作为合法弃赛 + 赌命后改写信息结构
+  existing: C05
+  relation: extends
+  what_is_new: C05 已收录黑门、丢失补位、点将拒令即死与赌命后三轮造字；本条新增「主帅点将只能选参与者，否则由地龙本人受制裁」这一反用（把限制变成对主持人的讹诈位），以及赌命把人数从 14 压到 2「规模优势全部作废」这一成本结构。
+- new_id: Q08
+  new_name: 仓颉棋·黑门作为合法弃赛 + 赌命后改写信息结构
+  existing: C22
+  relation: extends
+  what_is_new: C22 已收录互不告知的剔除字规则；本条补充它的战术定位——不是「增加趣味」，而是在对手适应旧规则的瞬间重置信息不对称。
+- new_id: Q09
+  new_name: 朔望月·先确认「最大」的定义
+  existing: C04
+  relation: extends
+  what_is_new: C04 已收录朔望月全部规则与三条隐藏规则；本条明确划出证据边界——原文未记载齐夏在该局的具体操作，因此战术部分只能是 E3 推演；并新增「用不可匹配下注做库存探针」这一可执行动作。
+- new_id: Q11
+  new_name: 造人计划（造动机、造棋子、造世界）
+  existing: C23
+  relation: extends
+  what_is_new: C23 已收录余念安的三重身份（执念/假余念安/造反代号）；本条把「造人计划」拆成动机层/棋子层/世界层三个用途，并新增 E2 级细节——余念安以燕知春身体+江若雪性格为蓝本、外形来自燕知春而面庞来自「业力」母神、性格表情来自齐夏本身；以及燕知春 YNA 文身与「智力强化」这一改造事实。
+- new_id: Q17
+  new_name: 洗牌谎言（目标函数被伪造）
+  existing: X337
+  relation: upgrades_clue
+  what_is_new: 既有 casebook 的 X337 仅有章节标题「道的骗局」，证据级别为 chapter_title；本条把它升级为 E1/E2 级事实——五城收集阈值（道3600/玉57600/涡3600/勾1800/索3600）达到即触发「洗牌」、筹码材料为人体器官（眼球/牙齿/耳蜗/鼻子/眉毛）、青龙以「找回五官变回人」驱动蝼蚁收集。与 C02（极乐钱庄）无重叠。
+- new_id: Q20
+  new_name: 执念审计（把最私人情感做成最大行动的掩护）
+  existing: C23
+  relation: extends
+  what_is_new: C23 已收录余念安的三重身份与「1309 章造反代号」；本条新增 E2 级细节（外形来自燕知春、面庞来自「业力」母神、性格表情来自齐夏本身；原文同时提示「造反名称」之说可能也是欺诈），并把它上升为可执行的「执念审计」防御动作（执念与决策解耦）。
+omitted:
+- existing: C06
+  existing_name: 赌命规则与生肖守则
+  covered_by: 不重复收录（内容已在 casebook 确认）
+  reason: 本库只记增量：该条规则原文与结论已在 methodology/casebook.yaml 逐条确认，重复收录会破坏可检索性
+  referenced_by: []
+- existing: C07
+  existing_name: 仓颉棋外围：地龙认输自杀
+  covered_by: 不重复收录（内容已在 casebook 确认）
+  reason: 本库只记增量：该条规则原文与结论已在 methodology/casebook.yaml 逐条确认，重复收录会破坏可检索性
+  referenced_by:
+  - Q08
+- existing: C19
+  existing_name: 生肖九条守则（制度化义务）
+  covered_by: 不重复收录（内容已在 casebook 确认）
+  reason: 本库只记增量：该条规则原文与结论已在 methodology/casebook.yaml 逐条确认，重复收录会破坏可检索性
+  referenced_by:
+  - Q03
+- existing: C20
+  existing_name: 两军问题（协同攻击难题）
+  covered_by: 不重复收录（内容已在 casebook 确认）
+  reason: 本库只记增量：该条规则原文与结论已在 methodology/casebook.yaml 逐条确认，重复收录会破坏可检索性
+  referenced_by: []
+- existing: C21
+  existing_name: 人蛇「是与非」元问题
+  covered_by: 不重复收录（内容已在 casebook 确认）
+  reason: 本库只记增量：该条规则原文与结论已在 methodology/casebook.yaml 逐条确认，重复收录会破坏可检索性
+  referenced_by: []
+chapter_clue_status:
+- id: X02
+  chapter: 2
+  title: 说谎
+  status: clue_only
+  upgraded_by: null
+  note: 仅标题级证据，不得据此断言剧情；若需使用请先在规则/时间线原文中另找支撑
+- id: X08
+  chapter: 8
+  title: 摊牌
+  status: clue_only
+  upgraded_by: null
+  note: 仅标题级证据，不得据此断言剧情；若需使用请先在规则/时间线原文中另找支撑
+- id: X60
+  chapter: 60
+  title: 心理战
+  status: clue_only
+  upgraded_by: null
+  note: 仅标题级证据，不得据此断言剧情；若需使用请先在规则/时间线原文中另找支撑
+- id: X75
+  chapter: 75
+  title: 攻心计
+  status: clue_only
+  upgraded_by: null
+  note: 仅标题级证据，不得据此断言剧情；若需使用请先在规则/时间线原文中另找支撑
+- id: X213
+  chapter: 213
+  title: 计中计
+  status: clue_only
+  upgraded_by: null
+  note: 仅标题级证据，不得据此断言剧情；若需使用请先在规则/时间线原文中另找支撑
+- id: X215
+  chapter: 215
+  title: 三个人的计
+  status: clue_only
+  upgraded_by: null
+  note: 仅标题级证据，不得据此断言剧情；若需使用请先在规则/时间线原文中另找支撑
+- id: X250
+  chapter: 250
+  title: 沉没成本
+  status: clue_only
+  upgraded_by: null
+  note: 仅标题级证据，不得据此断言剧情；若需使用请先在规则/时间线原文中另找支撑
+- id: X278
+  chapter: 278
+  title: 囚徒困境
+  status: clue_only
+  upgraded_by: null
+  note: 仅标题级证据，不得据此断言剧情；若需使用请先在规则/时间线原文中另找支撑
+- id: X337
+  chapter: 337
+  title: 道的骗局
+  status: upgraded_to_fact
+  upgraded_by: Q17
+  note: Q17 以 E1/E2 事实取代标题推测（五城阈值/洗牌/器官筹码/蝼蚁动机）
+- id: X438
+  chapter: 438
+  title: 隐藏的规则
+  status: clue_only
+  upgraded_by: null
+  note: 仅标题级证据，不得据此断言剧情；若需使用请先在规则/时间线原文中另找支撑
+- id: X460
+  chapter: 460
+  title: 未曾提及的规则
+  status: clue_only
+  upgraded_by: null
+  note: 仅标题级证据，不得据此断言剧情；若需使用请先在规则/时间线原文中另找支撑
+- id: X463
+  chapter: 463
+  title: 规则更改
+  status: clue_only
+  upgraded_by: null
+  note: 仅标题级证据，不得据此断言剧情；若需使用请先在规则/时间线原文中另找支撑
+- id: X556
+  chapter: 556
+  title: 局中局中局
+  status: clue_only
+  upgraded_by: null
+  note: 仅标题级证据，不得据此断言剧情；若需使用请先在规则/时间线原文中另找支撑
+- id: X567
+  chapter: 567
+  title: 骗亦是信
+  status: clue_only
+  upgraded_by: null
+  note: 仅标题级证据，不得据此断言剧情；若需使用请先在规则/时间线原文中另找支撑
+- id: X617
+  chapter: 617
+  title: 失算
+  status: clue_only
+  upgraded_by: null
+  note: 仅标题级证据，不得据此断言剧情；若需使用请先在规则/时间线原文中另找支撑
+- id: X619
+  chapter: 619
+  title: 漏洞
+  status: clue_only
+  upgraded_by: null
+  note: 仅标题级证据，不得据此断言剧情；若需使用请先在规则/时间线原文中另找支撑
+- id: X644
+  chapter: 644
+  title: 真假规则
+  status: clue_only
+  upgraded_by: null
+  note: 仅标题级证据，不得据此断言剧情；若需使用请先在规则/时间线原文中另找支撑
+- id: X647
+  chapter: 647
+  title: 连环攻心
+  status: clue_only
+  upgraded_by: null
+  note: 仅标题级证据，不得据此断言剧情；若需使用请先在规则/时间线原文中另找支撑
+- id: X648
+  chapter: 648
+  title: 超核运算
+  status: clue_only
+  upgraded_by: null
+  note: 仅标题级证据，不得据此断言剧情；若需使用请先在规则/时间线原文中另找支撑
+- id: X654
+  chapter: 654
+  title: 识破即被骗
+  status: clue_only
+  upgraded_by: null
+  note: 仅标题级证据，不得据此断言剧情；若需使用请先在规则/时间线原文中另找支撑
+- id: X666
+  chapter: 666
+  title: 逼退博弈
+  status: clue_only
+  upgraded_by: null
+  note: 仅标题级证据，不得据此断言剧情；若需使用请先在规则/时间线原文中另找支撑
+- id: X668
+  chapter: 668
+  title: 平局算输
+  status: clue_only
+  upgraded_by: null
+  note: 仅标题级证据，不得据此断言剧情；若需使用请先在规则/时间线原文中另找支撑
+- id: X670
+  chapter: 670
+  title: 谁的底牌
+  status: clue_only
+  upgraded_by: null
+  note: 仅标题级证据，不得据此断言剧情；若需使用请先在规则/时间线原文中另找支撑
+- id: X685
+  chapter: 685
+  title: 很长的计划
+  status: clue_only
+  upgraded_by: null
+  note: 仅标题级证据，不得据此断言剧情；若需使用请先在规则/时间线原文中另找支撑
+- id: X753
+  chapter: 753
+  title: 无数个局
+  status: clue_only
+  upgraded_by: null
+  note: 仅标题级证据，不得据此断言剧情；若需使用请先在规则/时间线原文中另找支撑
+- id: X831
+  chapter: 831
+  title: 规则盲点
+  status: clue_only
+  upgraded_by: null
+  note: 仅标题级证据，不得据此断言剧情；若需使用请先在规则/时间线原文中另找支撑
+- id: X886
+  chapter: 886
+  title: 无法赌命
+  status: clue_only
+  upgraded_by: null
+  note: 仅标题级证据，不得据此断言剧情；若需使用请先在规则/时间线原文中另找支撑
+- id: X1063
+  chapter: 1063
+  title: 布局开始
+  status: clue_only
+  upgraded_by: null
+  note: 仅标题级证据，不得据此断言剧情；若需使用请先在规则/时间线原文中另找支撑
+- id: X1082
+  chapter: 1082
+  title: 最终博弈
+  status: clue_only
+  upgraded_by: null
+  note: 仅标题级证据，不得据此断言剧情；若需使用请先在规则/时间线原文中另找支撑
+- id: X1128
+  chapter: 1128
+  title: 我有一计
+  status: clue_only
+  upgraded_by: null
+  note: 仅标题级证据，不得据此断言剧情；若需使用请先在规则/时间线原文中另找支撑
+- id: X1188
+  chapter: 1188
+  title: 临时底牌
+  status: clue_only
+  upgraded_by: null
+  note: 仅标题级证据，不得据此断言剧情；若需使用请先在规则/时间线原文中另找支撑
+- id: X1195
+  chapter: 1195
+  title: 我有第二计
+  status: clue_only
+  upgraded_by: null
+  note: 仅标题级证据，不得据此断言剧情；若需使用请先在规则/时间线原文中另找支撑
+- id: X1237
+  chapter: 1237
+  title: 漏洞百出
+  status: clue_only
+  upgraded_by: null
+  note: 仅标题级证据，不得据此断言剧情；若需使用请先在规则/时间线原文中另找支撑
+- id: X1285
+  chapter: 1285
+  title: 隔空对赌
+  status: clue_only
+  upgraded_by: null
+  note: 仅标题级证据，不得据此断言剧情；若需使用请先在规则/时间线原文中另找支撑
+- id: X1318
+  chapter: 1318
+  title: 三方对赌
+  status: clue_only
+  upgraded_by: null
+  note: 仅标题级证据，不得据此断言剧情；若需使用请先在规则/时间线原文中另找支撑
+- id: X1327
+  chapter: 1327
+  title: 最终欺诈？
+  status: clue_only
+  upgraded_by: null
+  note: 仅标题级证据，不得据此断言剧情；若需使用请先在规则/时间线原文中另找支撑
+- id: X1347
+  chapter: 1347
+  title: 神之欺诈
+  status: clue_only
+  upgraded_by: null
+  note: 仅标题级证据，不得据此断言剧情；若需使用请先在规则/时间线原文中另找支撑
+stats:
+  extends: 21
+  upgrades_clue: 1
+  duplicate_of: 0
+  casebook_cases_total: 23
+  casebook_cases_referenced: 19
+  chapter_clues_total: 37
+  chapter_clues_upgraded: 1

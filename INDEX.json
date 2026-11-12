@@ -1,0 +1,755 @@
+{
+  "name": "qixia-skills",
+  "display_name": "齐夏 skills",
+  "version": "1.0.0",
+  "updated": "2026-11-11",
+  "scope": "面向 agent 的谋略与博弈决策包：方法论模式（P1–P5）+ 可计算的博弈论模型（G1–G12）+ 案例与证据基线。用于对抗性博弈、谈判、红队演练与规则审计；不用于对真实个人实施欺诈、胁迫或诱导自伤。",
+  "requires": {
+    "python": ">=3.8",
+    "third_party": [],
+    "network": "不需要（全部离线，证据已固化在包内）"
+  },
+  "entrypoints": {
+    "skill": "SKILL.md",
+    "quickstart": "QUICKSTART.md",
+    "routing": "ROUTING.md",
+    "index": "INDEX.json",
+    "cli": "qixia.py",
+    "methodology_overview": "methodology/00-methodology-overview.md",
+    "pattern_index": "methodology/patterns.index.json",
+    "casebook": "methodology/casebook.yaml",
+    "pattern_cli": "methodology/scripts/pattern_cli.py",
+    "pattern_validate": "methodology/scripts/validate.py",
+    "gt_engine": "scripts/gt/qixia_gt.py",
+    "gt_schemas": "skills/game-theory/SCHEMAS.md",
+    "gt_playbook": "skills/game-theory/AGENT_PLAYBOOK.md",
+    "gt_cases_index": "skills/game-theory/CASES.md",
+    "gt_checklists": "skills/game-theory/checklists.md",
+    "gt_case_manifest": "cases/gt/manifest.json",
+    "evidence": "knowledge/sources/shiri_baike.txt",
+    "prompts_index": "prompts/README.md",
+    "version_file": "VERSION",
+    "package_checker": "scripts/check_package.py",
+    "build_script": "build_package.sh",
+    "changelog": "CHANGELOG.md",
+    "package_readme": "README.md",
+    "cases_index": "knowledge/cases/cases.index.json",
+    "cases_cli": "scripts/cases/case_cli.py",
+    "cases_audit": "scripts/cases/audit_cases.py",
+    "evidence_policy": "knowledge/cases/evidence_policy.md"
+  },
+  "layers": [
+    {
+      "id": "L0",
+      "name": "入口层（agent 契约）",
+      "role": "怎么加载、怎么路由、怎么调用、怎么验收",
+      "read_order": 1,
+      "paths": [
+        "SKILL.md",
+        "QUICKSTART.md",
+        "ROUTING.md",
+        "INDEX.json",
+        "qixia.py",
+        "README.md",
+        "prompts/README.md"
+      ]
+    },
+    {
+      "id": "L1",
+      "name": "方法论层（P1–P5）",
+      "role": "用什么招：触发条件、执行步骤、失败条件、反制手段",
+      "read_order": 2,
+      "paths": [
+        "methodology/00-methodology-overview.md",
+        "methodology/01-rule-recon.md",
+        "methodology/02-rule-deception.md",
+        "methodology/03-nested-plans.md",
+        "methodology/04-bets-commitment.md",
+        "methodology/05-psych-warfare.md",
+        "methodology/patterns.index.json",
+        "methodology/casebook.yaml",
+        "methodology/scripts/pattern_cli.py",
+        "methodology/scripts/validate.py"
+      ]
+    },
+    {
+      "id": "L2",
+      "name": "模型层（G1–G12）",
+      "role": "为什么成立、成立的条件、数值上值不值",
+      "read_order": 3,
+      "paths": [
+        "skills/game-theory/SKILL.md",
+        "skills/game-theory/AGENT_PLAYBOOK.md",
+        "skills/game-theory/SCHEMAS.md",
+        "skills/game-theory/CASES.md",
+        "skills/game-theory/checklists.md",
+        "scripts/gt/qixia_gt.py",
+        "scripts/gt/run_cases.sh"
+      ]
+    },
+    {
+      "id": "L3",
+      "name": "案例与证据层",
+      "role": "把局面变成参数、把结论拉回原文核对；结构化案例库（生肖机制/战例/去重/覆盖）",
+      "read_order": 4,
+      "paths": [
+        "cases/gt/manifest.json",
+        "reports/gt/situation_interview_room.md",
+        "reports/gt/situation_jile_qianzhuang.md",
+        "methodology/examples/ex01-jile-qianzhuang-walkthrough.md",
+        "knowledge/sources/shiri_baike.txt",
+        "knowledge/cases/cases.index.json",
+        "knowledge/cases/coverage.md",
+        "knowledge/cases/evidence_policy.md",
+        "knowledge/cases/zodiac_mechanisms.yaml",
+        "knowledge/cases/qixia_battles.yaml",
+        "knowledge/cases/dedupe_map.yaml",
+        "scripts/cases/audit_cases.py",
+        "scripts/cases/build_case_index.py",
+        "scripts/cases/case_cli.py"
+      ]
+    }
+  ],
+  "counts": {
+    "patterns": 5,
+    "models": 12,
+    "gt_cases": 20,
+    "gt_reports": 20,
+    "deep_cases": 23,
+    "chapter_cases": 37,
+    "prompt_templates": 7,
+    "solvers": 14,
+    "case_records": 69,
+    "zodiac_games": 37,
+    "qixia_battles": 21,
+    "families": 12
+  },
+  "routing": {
+    "entry_command": "python3 qixia.py ask \"<情境>\"",
+    "note": "P 层由 methodology/scripts/pattern_cli.py match 计算（单一事实来源），G 层由本文件的 model_keywords 打分；两者都返回 score 与命中词，便于 agent 记录判断依据。",
+    "model_keywords": [
+      {
+        "code": "G1",
+        "name": "囚徒困境 / 重复博弈",
+        "solver": "pd",
+        "case": "g1_pd_278.json",
+        "why": "双方同时选、有明确收益矩阵、可能重复",
+        "keywords": [
+          "合作",
+          "背叛",
+          "囚徒困境",
+          "出卖",
+          "联手",
+          "报复",
+          "惩罚",
+          "一次性",
+          "重复",
+          "联手还是"
+        ]
+      },
+      {
+        "code": "G2",
+        "name": "不完全信息 / 贝叶斯更新",
+        "solver": "bayes",
+        "case": "g2_bayes_siqingshan.json",
+        "why": "真假难辨、要不要花钱/冒险去查",
+        "keywords": [
+          "真假",
+          "不确定",
+          "概率",
+          "情报",
+          "观测",
+          "试探",
+          "值得查",
+          "后验",
+          "他到底",
+          "模糊",
+          "说不清",
+          "拿不准"
+        ]
+      },
+      {
+        "code": "G3",
+        "name": "信号博弈（分离/混同）",
+        "solver": "signaling",
+        "case": "g3b_signaling_contract_fixed.json",
+        "why": "我要证明自己、或要判断对方的类型/承诺是否可信",
+        "keywords": [
+          "证明自己",
+          "信号",
+          "伪装",
+          "装",
+          "类型",
+          "资质",
+          "担保",
+          "识破",
+          "他说的算不算"
+        ]
+      },
+      {
+        "code": "G4",
+        "name": "机制设计 / 规则审计",
+        "solver": "mechanism",
+        "case": "g4_mechanism_feisheng.json",
+        "why": "规则在奖励什么行为、漏洞在哪、规则由我/他设计",
+        "keywords": [
+          "规则",
+          "机制",
+          "条款",
+          "合同",
+          "漏洞",
+          "激励",
+          "申报",
+          "名额",
+          "分配",
+          "奖励",
+          "惩罚",
+          "判定函数",
+          "裁决",
+          "判定",
+          "规则书",
+          "说明书"
+        ]
+      },
+      {
+        "code": "G5",
+        "name": "混合策略 / 纳什均衡",
+        "solver": "mixed",
+        "case": "g5_mixed_shuowangyue.json",
+        "why": "没有纯策略最优，随机化才不被针对",
+        "keywords": [
+          "随机",
+          "均衡",
+          "被针对",
+          "猜拳",
+          "混合",
+          "不可预测",
+          "频率",
+          "出牌"
+        ]
+      },
+      {
+        "code": "G6",
+        "name": "逆向归纳 / 承诺可信度",
+        "solver": "backward",
+        "case": "g6_tree_changjie.json",
+        "why": "有先后顺序、有威胁或承诺、要判断威胁是否可信",
+        "keywords": [
+          "威胁",
+          "承诺",
+          "先后",
+          "顺序",
+          "倒推",
+          "可信吗",
+          "拒绝",
+          "处决",
+          "多阶段",
+          "最后一步"
+        ]
+      },
+      {
+        "code": "G7",
+        "name": "沉没成本 / 承诺升级",
+        "solver": "sunk",
+        "case": "g7_sunk_250.json",
+        "why": "已经投了很多，该继续还是止损；如何让对手退不出",
+        "keywords": [
+          "沉没成本",
+          "止损",
+          "已经投入",
+          "继续还是放弃",
+          "耗",
+          "消耗战",
+          "退不出去",
+          "回本",
+          "要不要继续",
+          "投了",
+          "已经花",
+          "继续投入"
+        ]
+      },
+      {
+        "code": "G8",
+        "name": "诈唬频率 / 底池赔率",
+        "solver": "bluff",
+        "case": "g8_bluff_jile.json",
+        "why": "要不要下注/跟注、下多少、抽水后还是不是正 EV",
+        "keywords": [
+          "诈唬",
+          "下注",
+          "底池",
+          "赔率",
+          "跟注",
+          "弃牌",
+          "抽水",
+          "加注",
+          "押注",
+          "赌注",
+          "对赌",
+          "赌局",
+          "赌约"
+        ]
+      },
+      {
+        "code": "G9",
+        "name": "概率分配设计",
+        "solver": "prob",
+        "case": "g9_prob_baiheiqi.json",
+        "why": "分配权在我手里，怎么把概率拉到极限",
+        "keywords": [
+          "分配",
+          "概率设计",
+          "抽样",
+          "中奖率",
+          "黑白棋",
+          "分组",
+          "随机分配",
+          "比例",
+          "抽签",
+          "命中率",
+          "分配方案"
+        ]
+      },
+      {
+        "code": "G10",
+        "name": "共同知识 / 两军问题",
+        "solver": "common",
+        "case": "g10_common_liangjun.json",
+        "why": "多方要同时行动、信道不可靠、约定无法最终确认",
+        "keywords": [
+          "协同",
+          "同时行动",
+          "确认",
+          "通信",
+          "两军",
+          "一致",
+          "没有回执",
+          "同时动手",
+          "联系不上"
+        ]
+      },
+      {
+        "code": "G11",
+        "name": "甄别菜单 / 信息租金",
+        "solver": "screening",
+        "case": null,
+        "why": "用一套自选菜单让对方暴露类型（定价档位、押金、分级）",
+        "keywords": [
+          "菜单",
+          "分级",
+          "档位",
+          "自选",
+          "甄别",
+          "信息租金",
+          "押金",
+          "门槛",
+          "差异化定价",
+          "合同",
+          "签约",
+          "协议",
+          "承诺书"
+        ]
+      },
+      {
+        "code": "G12",
+        "name": "元博弈 / 目标函数审计",
+        "solver": "meta",
+        "case": "g12_meta_dao.json",
+        "why": "赢了之后谁结算、目标是不是诱饵、有没有退出权",
+        "keywords": [
+          "目标",
+          "结算",
+          "赢了之后",
+          "谁定",
+          "规则制定权",
+          "退出",
+          "掀桌",
+          "值得玩",
+          "为什么玩",
+          "终点",
+          "结算者",
+          "赢家",
+          "最后谁",
+          "制定规则",
+          "值不值得玩"
+        ]
+      }
+    ],
+    "pattern_aliases": [
+      {
+        "pattern": "P4",
+        "words": [
+          "对赌",
+          "赌局",
+          "赌约",
+          "合约",
+          "合同",
+          "协议",
+          "签约",
+          "签字",
+          "承诺书",
+          "保证书"
+        ]
+      },
+      {
+        "pattern": "P1",
+        "words": [
+          "规则书",
+          "说明书",
+          "条款",
+          "主办方",
+          "平台规则",
+          "玩法",
+          "新游戏",
+          "第一次玩",
+          "分组",
+          "抽签",
+          "命中率",
+          "分配规则",
+          "怎么分"
+        ]
+      },
+      {
+        "pattern": "P2",
+        "words": [
+          "被骗",
+          "谎言",
+          "虚假",
+          "假的",
+          "诈我",
+          "套路",
+          "不实",
+          "夸大"
+        ]
+      },
+      {
+        "pattern": "P3",
+        "words": [
+          "布局",
+          "设局",
+          "圈套",
+          "多层",
+          "连环",
+          "诱饵",
+          "套中套",
+          "算计"
+        ]
+      },
+      {
+        "pattern": "P5",
+        "words": [
+          "攻心",
+          "施压",
+          "士气",
+          "人心",
+          "内讧",
+          "谈判对手",
+          "说服",
+          "动摇",
+          "止损",
+          "要不要继续",
+          "已经投",
+          "投了",
+          "回本",
+          "退出成本"
+        ]
+      }
+    ],
+    "alias_note": "口语 → 模式 的补齐层：pattern_cli.match 只按触发词打分，别名层在其结果为空或漏项时补位（score=1.0×命中词数，hits 以 alias: 前缀标记）。",
+    "model_pattern_fallback": {
+      "G1": "P5",
+      "G2": "P1",
+      "G3": "P2",
+      "G4": "P1",
+      "G5": "P3",
+      "G6": "P4",
+      "G7": "P5",
+      "G8": "P4",
+      "G9": "P1",
+      "G10": "P4",
+      "G11": "P4",
+      "G12": "P1"
+    },
+    "fallback_note": "P 层与别名层都未命中时，用已命中的模型按 model_pattern_fallback 倒推方法（source=model，score=0，仅为方向提示）。"
+  },
+  "commands": [
+    {
+      "name": "status",
+      "argv": "python3 qixia.py status",
+      "purpose": "列出三层文件清单与计数",
+      "json": true
+    },
+    {
+      "name": "where",
+      "argv": "python3 qixia.py where",
+      "purpose": "打印包根目录绝对路径（供 agent 解析相对路径）",
+      "json": true
+    },
+    {
+      "name": "ask",
+      "argv": "python3 qixia.py ask \"<情境>\"",
+      "purpose": "情境 → 模式(P) + 模型(G) 联合路由 + 下一步命令",
+      "json": true
+    },
+    {
+      "name": "route",
+      "argv": "python3 qixia.py route \"<情境>\" --json",
+      "purpose": "ask 的机器可读形态（推荐 agent 使用）",
+      "json": true
+    },
+    {
+      "name": "pattern_eight",
+      "argv": "python3 qixia.py pattern eight",
+      "purpose": "谋略八问：未知环境的第一步",
+      "json": true
+    },
+    {
+      "name": "pattern_match",
+      "argv": "python3 qixia.py pattern match \"<情境>\"",
+      "purpose": "只做模式匹配",
+      "json": true
+    },
+    {
+      "name": "pattern_show",
+      "argv": "python3 qixia.py pattern show P4",
+      "purpose": "读某模式全貌（触发/步骤/失败/反制/checklist）",
+      "json": true
+    },
+    {
+      "name": "pattern_premortem",
+      "argv": "python3 qixia.py pattern premortem P3",
+      "purpose": "事前验尸：先排失败条件",
+      "json": true
+    },
+    {
+      "name": "pattern_check",
+      "argv": "python3 qixia.py pattern check P1",
+      "purpose": "打印执行清单",
+      "json": true
+    },
+    {
+      "name": "gt_models",
+      "argv": "python3 qixia.py run models",
+      "purpose": "模型索引（以引擎内置输出为准，避免文档漂移）",
+      "json": false
+    },
+    {
+      "name": "gt_flow",
+      "argv": "python3 qixia.py run flow",
+      "purpose": "S0–S6 总决策流水线",
+      "json": false
+    },
+    {
+      "name": "gt_audit",
+      "argv": "python3 qixia.py run audit --file <situation.json> [--json] [--out x.md]",
+      "purpose": "局面全审计：自动识别模型 + 跑求解器 + 汇总 gaps",
+      "json": true
+    },
+    {
+      "name": "gt_solver",
+      "argv": "python3 qixia.py run <solver> --file <case.json> [--json] [--out x.md]",
+      "purpose": "单模型求解（solver 名见 run models）",
+      "json": true
+    },
+    {
+      "name": "gt_checklist",
+      "argv": "python3 qixia.py run checklist --model G4 --format json",
+      "purpose": "导出 checklist（可做 agent 的硬门禁输入）",
+      "json": true
+    },
+    {
+      "name": "gt_selftest",
+      "argv": "python3 qixia.py run selftest",
+      "purpose": "引擎自检",
+      "json": false
+    },
+    {
+      "name": "doctor",
+      "argv": "python3 qixia.py doctor",
+      "purpose": "全包体检：文件齐备 + 双引擎自检 + 文档命令冒烟",
+      "json": true
+    },
+    {
+      "name": "pack",
+      "argv": "python3 qixia.py pack",
+      "purpose": "生成交付压缩包 + sha256",
+      "json": true
+    },
+    {
+      "name": "package_check",
+      "argv": "python3 scripts/check_package.py",
+      "purpose": "交付层全包自洽验收（结构/索引/交叉链接/计数/可复现）",
+      "json": true
+    },
+    {
+      "name": "package_build",
+      "argv": "sh build_package.sh",
+      "purpose": "确定性打包（tar.gz+zip+sha256+解包自检）",
+      "json": false
+    }
+  ],
+  "prompt_templates": [
+    {
+      "id": "T0",
+      "file": "prompts/00-system-agent.md",
+      "when": "把 skill 挂进 agent 的 system prompt / 技能目录时",
+      "variables": []
+    },
+    {
+      "id": "T1",
+      "file": "prompts/01-rule-audit.md",
+      "when": "拿到一套新规则、想找隐藏规则与漏洞",
+      "variables": [
+        "规则原文",
+        "裁判/主办方",
+        "赌注"
+      ]
+    },
+    {
+      "id": "T2",
+      "file": "prompts/02-full-audit.md",
+      "when": "局面复杂、需要一次跑通 P+G 全链条",
+      "variables": [
+        "局面描述",
+        "已知/未知",
+        "时间压力"
+      ]
+    },
+    {
+      "id": "T3",
+      "file": "prompts/03-nested-plan.md",
+      "when": "正面打不过，需要布局/连环计",
+      "variables": [
+        "我方劣势",
+        "对手痛点",
+        "可用筹码"
+      ]
+    },
+    {
+      "id": "T4",
+      "file": "prompts/04-negotiation-bet.md",
+      "when": "谈判/结盟/对赌/承诺设计",
+      "variables": [
+        "标的",
+        "对手",
+        "判定函数",
+        "筹码",
+        "时限"
+      ]
+    },
+    {
+      "id": "T5",
+      "file": "prompts/05-debrief.md",
+      "when": "一局结束后的复盘与参数更新",
+      "variables": [
+        "实际过程",
+        "原计划",
+        "结果"
+      ]
+    },
+    {
+      "id": "T6",
+      "file": "prompts/06-quick-oneshot.md",
+      "when": "只想要一句话结论（最省 token 的调用）",
+      "variables": [
+        "问题"
+      ]
+    }
+  ],
+  "workflows": [
+    {
+      "id": "W0",
+      "name": "冷启动（进入未知场景）",
+      "steps": [
+        "python3 qixia.py pattern eight",
+        "python3 qixia.py ask \"<场景一句话>\"",
+        "python3 qixia.py pattern show <P?>",
+        "python3 qixia.py pattern premortem <P?>"
+      ]
+    },
+    {
+      "id": "W1",
+      "name": "规则审计（只判断规则，不下注）",
+      "steps": [
+        "按 SCHEMAS.md 写 situation.json（只填 g4 段也能跑）",
+        "python3 qixia.py run audit --file <situation.json> --json",
+        "读 gaps[]：规则未定义 / 激励不相容 / 参数缺失",
+        "python3 qixia.py pattern check P1 逐项打勾"
+      ]
+    },
+    {
+      "id": "W2",
+      "name": "定量决策（要数字）",
+      "steps": [
+        "python3 qixia.py run <solver> --file <case.json> --json",
+        "对比 reports/gt/<case>.md 的既有结论，确认没退化",
+        "参数取基准/悲观/乐观三值各跑一遍，结论一致才用"
+      ]
+    },
+    {
+      "id": "W3",
+      "name": "布局（要分层计划）",
+      "steps": [
+        "python3 qixia.py pattern show P3",
+        "python3 qixia.py run backward --file cases/gt/g6_tree_changjie.json   # 先验证威胁是否可信",
+        "python3 qixia.py run meta --file cases/gt/g12_meta_dao.json           # 再验证赢了谁结算",
+        "python3 qixia.py pattern premortem P3"
+      ]
+    },
+    {
+      "id": "W4",
+      "name": "对赌 / 谈判",
+      "steps": [
+        "python3 qixia.py pattern show P4",
+        "python3 qixia.py run screening --theta-h <高类型价值> --theta-l <低类型价值> --prior <先验>",
+        "python3 qixia.py run bluff --pot <池> --bet <注>",
+        "python3 qixia.py pattern counter P4   # 对手会怎么反制"
+      ]
+    },
+    {
+      "id": "W5",
+      "name": "交付前验收",
+      "steps": [
+        "python3 qixia.py doctor",
+        "sh build_package.sh",
+        "python3 qixia.py pack（轻量备选：仅 zip + sha256）"
+      ]
+    }
+  ],
+  "verification": {
+    "required_cases": [
+      "manifest.json",
+      "situation_interview_room.json",
+      "situation_jile_qianzhuang.json",
+      "g1_pd_278.json",
+      "g4_mechanism_feisheng.json",
+      "g6_tree_changjie.json",
+      "g8_bluff_jile.json",
+      "g12_meta_dao.json"
+    ],
+    "required_reports": [
+      "situation_interview_room.md",
+      "situation_jile_qianzhuang.md",
+      "g12_meta_dao.md"
+    ],
+    "commands": [
+      "python3 qixia.py doctor",
+      "python3 qixia.py ask \"只有口头规则还有个裁判有最终解释权\"",
+      "python3 qixia.py run audit --file cases/gt/situation_interview_room.json",
+      "sh scripts/gt/run_cases.sh"
+    ]
+  },
+  "constraints": [
+    "本包面向对抗性博弈、谈判、红队演练与规则审计；禁止用于对真实个人实施欺诈、胁迫或诱导自伤。",
+    "参数多为建模假设（原文只给规则文本，不给收益数字）：结论的『结构』可信，『绝对数值』不可当原文事实。",
+    "标题级线索（casebook.yaml 中 evidence: chapter_title）只能当线索，不得写成剧情事实。",
+    "模式（P）是启发式，模型（G）是硬约束；两者冲突时以 G 的判定为准。",
+    "所有路径均相对于包根目录；先跑 python3 qixia.py where 取得绝对路径再解析。"
+  ],
+  "layering_note": "入口层（L0）负责『agent 能否加载与调用』；交付层工具（scripts/check_package.py / build_package.sh）负责『包是否自洽、能否确定性重建』。二者互不替代：qixia.py doctor 通过 ≠ 全包自洽达成。",
+  "artifacts": {
+    "package_manifest": "PACKAGE.json",
+    "note": "打包产物：由 build_package.sh / scripts/check_package.py --write-manifest 生成，加载阶段可不存在。",
+    "dist_dir": "../dist"
+  }
+}
